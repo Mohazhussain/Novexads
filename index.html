@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport Meta Tag: Ensures the page scales correctly on all devices (PC & Mobile) --><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVEX ADS - Meta & Google Specialist</title>
+    
+    <!-- Using Inter for modern typography --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- Embedded CSS for Styling (Glow, Gradients, and Animations) --><style>
+        /*
+        |--------------------------------------------------------------------------
+        | 1. THEME VARIABLES & COLORS
+        |--------------------------------------------------------------------------
+        */
+        :root {
+            --color-background: #0d0d0d;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #aaaaaa;
+            --color-box-background: #1c1c1c; /* Darker background for the info box */
+
+            /* Custom Gradient Colors (Sky Blue, Pink, Purple) */
+            --gradient-main: linear-gradient(90deg, #00BFFF, #FF69B4, #8A2BE2);
+            /* Custom Click/Active Colors (Sky Blue and Dark Blue) */
+            --gradient-active: linear-gradient(135deg, #00BFFF, #004080); 
+            
+            --color-sky-blue-glow: #00BFFF; /* For box shadow glow */
+            --color-dark-blue: #004080;     /* For button hover/active base */
+
+            --spacing-unit: 8px;
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | 2. BASE STYLES & LAYOUT
+        |--------------------------------------------------------------------------
+        */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow-x: hidden; /* Hide horizontal scrollbar caused by bubbles */
+        }
+
+        .container {
+            width: 90%; /* Responsive width */
+            max-width: 600px; /* Max width for desktop/PC */
+            /* UPDATED: Reduced vertical padding to make it more compact like the reference site */
+            padding: calc(4 * var(--spacing-unit)); /* 32px padding instead of 48px */
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            /* UPDATED: Reduced gap between major elements */
+            gap: calc(3 * var(--spacing-unit)); /* 24px spacing instead of 32px */
+            position: relative; /* Ensure content stays above animation */
+            z-index: 10;
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | 3. BACKGROUND ANIMATION (Bubbles/Particles)
+        |--------------------------------------------------------------------------
+        */
+        
+        /* Keyframe for floating animation */
+        @keyframes float {
+            0% { transform: translate(0, 0); opacity: 0.8; }
+            50% { transform: translate(10px, 20px); opacity: 0.4; }
+            100% { transform: translate(0, 0); opacity: 0.8; }
+        }
+
+        /* Keyframe for bubbles rising and fading */
+        @keyframes bubbles {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            5% { opacity: 0.5; }
+            95% { opacity: 0; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        .bubble-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Ensure it stays behind the content */
+            overflow: hidden;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+
+        .bubble-wrapper div {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 191, 255, 0.15); /* Semi-transparent Sky Blue */
+            animation: bubbles 25s linear infinite, float 15s ease-in-out infinite alternate;
+            bottom: -150px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
+        }
+
+        .bubble-wrapper div:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 15s; background: rgba(255, 105, 180, 0.15); }
+        .bubble-wrapper div:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 18s; }
+        .bubble-wrapper div:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; animation-duration: 12s; background: rgba(138, 43, 226, 0.15); }
+        .bubble-wrapper div:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 22s; }
+        .bubble-wrapper div:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 7s; animation-duration: 20s; background: rgba(255, 105, 180, 0.15); }
+        .bubble-wrapper div:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; animation-duration: 30s; background: rgba(138, 43, 226, 0.15); }
+        .bubble-wrapper div:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 2s; animation-duration: 17s; }
+        .bubble-wrapper div:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 10s; animation-duration: 25s; background: rgba(255, 105, 180, 0.15); }
+        .bubble-wrapper div:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 12s; animation-duration: 13s; background: rgba(138, 43, 226, 0.15); }
+        .bubble-wrapper div:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 5s; animation-duration: 14s; }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | 4. HEADER & BRANDING
+        |--------------------------------------------------------------------------
+        */
+        .header-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Reduced gap inside header to make elements closer */
+            gap: calc(2 * var(--spacing-unit)); 
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--gradient-main); /* Gradient border effect */
+            padding: 3px; 
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5); /* Subtle glow */
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: var(--color-background); /* Inner color */
+        }
+
+        .main-heading {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+            /* Apply Gradient to Text */
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            /* Increased space below main heading */
+            margin-bottom: calc(2 * var(--spacing-unit)); /* 16px */
+            text-shadow: 0 0 5px rgba(0, 191, 255, 0.3);
+        }
+
+        /* NEW STYLE FOR SUB-HEADING/TAGLINE */
+        .tagline-text {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: var(--color-text-secondary); /* Greyish color for subtle look */
+            padding: 0 0.5em;
+            display: inline-block;
+            /* UPDATED: Reduced space below tagline before buttons */
+            margin-bottom: calc(3 * var(--spacing-unit)); /* 24px spacing instead of 40px */
+            max-width: 90%;
+            line-height: 1.4;
+        }
+
+        /* Remove old specialist-tag style */
+        .specialist-tag {
+             display: none; 
+        }
+        
+        /* About Section Styles */
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            gap: calc(2 * var(--spacing-unit)); /* Gap between title and box */
+            /* UPDATED: Reduced space above about section to separate from buttons */
+            margin-top: calc(4 * var(--spacing-unit)); /* 32px spacing instead of 48px */
+        }
+        
+        .about-title {
+            font-size: 1.5rem; 
+            font-weight: 800;
+            background: var(--gradient-main); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .about-box {
+            background-color: var(--color-box-background);
+            border-radius: 12px;
+            /* UPDATED: Reduced padding inside the box */
+            padding: calc(3 * var(--spacing-unit)); /* 24px padding instead of 32px */
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.2); /* Soft glow around the box */
+            border: 1px solid rgba(0, 191, 255, 0.3); /* Subtle border */
+            
+            /* NEW: Set max height and make content scrollable for compactness on mobile */
+            max-height: 250px; /* Maximum height for the box on mobile */
+            overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+        }
+
+        .about-description {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            font-weight: 400;
+            line-height: 1.8; /* Improve readability in the box */
+        }
+        
+        /* Highlight specific text within description */
+        .about-description strong {
+            background: linear-gradient(90deg, #FF69B4, #8A2BE2); /* Pink to Purple */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | 5. BUTTON STYLES (WhatsApp & Telegram)
+        |--------------------------------------------------------------------------
+        */
+        .button-wrapper {
+            display: flex;
+            flex-direction: row; /* Buttons are always side-by-side */
+            gap: calc(2 * var(--spacing-unit)); /* Reduced gap between buttons */
+            width: 100%;
+            justify-content: center; /* Center the button group */
+        }
+
+        .cta-button {
+            /* Reduced padding for smaller buttons */
+            padding: calc(1.5 * var(--spacing-unit)) calc(3 * var(--spacing-unit)); /* 12px vertical padding */
+            border-radius: 10px; /* Slightly smaller radius */
+            
+            /* Reduced font size for smaller buttons */
+            font-size: clamp(0.9rem, 2vw, 1.1rem); 
+            
+            /* The rest of the styles remain for hover/active effects */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 800;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: var(--color-text-primary);
+            flex-grow: 1; /* Allow buttons to grow equally */
+            max-width: 50%; /* Control button maximum width */
+        }
+
+        /* Common Button Base Style (Sky Blue / Purple Gradient) */
+        .cta-button {
+            background: linear-gradient(45deg, #00BFFF, #8A2BE2);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.6); 
+        }
+        
+        /* Hover/Active State: Change Gradient and Increase Glow */
+        .cta-button:hover,
+        .cta-button:focus {
+            background: var(--gradient-active); 
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--color-sky-blue-glow), 0 0 10px var(--color-sky-blue-glow);
+        }
+        
+        /* Active (Click) State: Press Down Effect */
+        .cta-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
+            transition: transform 0.1s;
+            background: var(--gradient-active);
+        }
+
+        .icon {
+            margin-right: calc(1 * var(--spacing-unit)); /* Reduced icon margin */
+            font-size: 1em; /* Reduced icon size */
+        }
+
+        /* Mobile Adjustments (Media Query) */
+        @media (max-width: 480px) {
+            .container {
+                padding: calc(2 * var(--spacing-unit)); /* Even less padding on very small devices */
+            }
+            .about-box {
+                padding: calc(2 * var(--spacing-unit)); /* Even less padding inside box */
+            }
+            .cta-button {
+                font-size: 0.9rem; /* Further adjustment for small screen button text */
+                padding: 10px 15px;
+            }
+            .tagline-text {
+                /* Ensure tagline is not too tight on top */
+                margin-bottom: calc(2 * var(--spacing-unit)); 
+            }
+            .about-section {
+                /* Ensure about section is not too tight on buttons */
+                margin-top: calc(3 * var(--spacing-unit));
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation Layer --><div class="bubble-wrapper">
+        <!-- 10 bubbles/particles for the moving effect --><div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <div class="container">
+        <!-- Brand Section --><div class="header-section">
+            
+            <!-- 1. Logo Placeholder --><div class="logo-container">
+                <!-- IMPORTANT: Using 'logo.png' as requested. --><img src="logo.png" alt="NOVEX ADS Logo" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1c1c1c/00BFFF?text=N.A';">
+            </div>
+
+            <!-- 2. Main Title (Gradient Text) --><h1 class="main-heading">NOVEX ADS</h1>
+            
+            <!-- 3. New Tagline/Sub-heading (Replacing Specialist Tag) -->
+            <p class="tagline-text">
+                High-performance Meta & Google ads for **Colour Trading** & **Gaming** niches.
+            </p>
+            
+            <!-- 4. CTA Buttons Section (MOVED UP) --><div class="button-wrapper">
+                
+                <!-- WhatsApp Button -->
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Join on WhatsApp">
+                    <span class="icon">💬</span> WHATSAPP
+                </a>
+
+                <!-- Telegram Button -->
+                <a href="https://telegram.me/CASHWITHNOVEX" target="_blank" rel="noopener noreferrer" class="cta-button" aria-label="Join on Telegram">
+                    <span class="icon">✈️</span> TELEGRAM
+                </a>
+                
+            </div>
+            
+            <!-- 5. About Section (MOVED DOWN) --><div class="about-section">
+                <!-- About Section Title --><p class="about-title">ABOUT NOVEX ADS</p>
+
+                <!-- About Description in a Box --><div class="about-box">
+                    <p class="about-description">
+                        We are a futuristic Meta & Google Ads agency specialized in <strong>Colour Trading</strong> and <strong>Gaming</strong> niches. Using data-driven targeting, creative optimization, and AI-powered campaign management, we help brands scale faster, convert smarter, and dominate digital growth. Our strategy combines advanced machine learning algorithms with expert human oversight to deliver superior ROI for our clients. We focus on maximizing click-through rates and minimizing cost per acquisition in these highly competitive sectors.
+                        <br><br>
+                        Our portfolio includes successful campaigns for major platform operators, driving millions of high-quality installs and registrations. Trust NOVEX ADS for guaranteed results in scaling your digital presence.
+                        <!-- Added extra text to demonstrate max-height scroll feature -->
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <!-- Footer --><footer style="padding: 16px; font-size: 0.8rem; color: #555; position: relative; z-index: 10;">
+        © 2025 NOVEX ADS. All rights reserved.
+    </footer>
+</body>
+</html>
