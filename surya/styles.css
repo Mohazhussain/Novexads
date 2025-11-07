@@ -1,236 +1,211 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    font-family: 'Poppins', sans-serif;
-    height: 100%;
-    margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+  margin: 0;
 }
 
 .background {
-    background-image: url('logo.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+  background-image: url('logo.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(119, 117, 117, 0.149);
 }
 
 .container {
-    position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px;
-    width: 100%;
-    max-width: 500px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: fadeIn 2s ease-in-out;
+  position: relative;
+  z-index: 1;
+  background: rgba(128, 124, 124, 0.242);
+  border-radius: 20px;
+  padding: 25px 30px;
+  width: 100%;
+  max-width: 460px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.201);
+  border: 1px solid rgba(255, 255, 255, 0.167);
+  animation: fadeIn 2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .header {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .header h1 {
-    color: #007BFF;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: slideIn 1s ease-in-out;
+  color: #00ffa6;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: slideIn 1s ease-in-out;
 }
 
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: url('image.jpg') no-repeat center center;
-    background-size: cover;
-    margin: 20px auto;
-    /* Add space above and below */
-    display: block;
-    /* Ensure it's centered */
-    animation: glow 2s infinite alternate;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: url('image.jpg') no-repeat center center;
+  background-size: cover;
+  margin: 10px auto 15px;
+  display: block;
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-    from {
-        box-shadow: 0 0 0 0px rgba(0, 123, 255, 0.7);
-    }
-    to {
-        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0.7);
-    }
+  from {
+    box-shadow: 0 0 0 0px rgb(0, 255, 157);
+  }
+  to {
+    box-shadow: 0 0 0 8px rgb(0, 255, 157);
+  }
 }
 
 .features {
-    margin-bottom: 30px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .feature {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 12px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-    animation: fadeIn 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  background: rgb(0, 228, 228);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
 .feature:hover {
-    transform: translateX(10px);
+  transform: translateX(8px);
 }
 
 .feature-icon {
-    width: 30px;
-    height: 30px;
-    background: #007BFF;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-right: 15px;
-    font-weight: bold;
+  width: 28px;
+  height: 28px;
+  background: #19daa0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 12px;
+  font-weight: bold;
 }
 
+/* Buttons Section */
+.btn {
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.3s;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* Join Telegram Button */
 .join-btn {
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(135deg, #007BFF, #0056b3);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
-    animation: pulse 2s infinite;
+  background: linear-gradient(90deg, #00ff80, #008cff, #0095ff);
+  background-size: 200% 200%;
+  color: #000;
+  font-weight: 800;
+  font-size: 1.1rem;
+  width: 85%;
+  max-width: 330px;
+  padding: 14px 20px;
+  animation: glow-yellow 1.5s infinite alternate, gradientMove 2s linear infinite, pulse 2s ease-in-out infinite;
+}
+
+/* Timer Circle */
+.timer-container {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  margin: 5px auto;
+}
+
+.progress-bg {
+  stroke: rgba(255,255,255,0.15);
+}
+.progress-bar {
+  stroke: #00ffff;
+  transition: stroke-dashoffset 1s linear;
+}
+.timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+/* Animations */
+@keyframes glow-yellow {
+  0%, 100% { box-shadow: 0 0 10px #00ff95, 0 0 25px #00ffe1; }
+  50% { box-shadow: 0 0 35px #00ff8c, 0 0 55px #00ff44; }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.414);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 15px 30px rgba(0, 123, 255, 0.6);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
-    }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 
-.join-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 123, 255, 0.6);
-}
 
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    animation: fadeIn 1s ease-in-out;
-}
 
-.countdown-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    min-width: 100px;
-}
-
-.countdown-item span {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #007BFF;
-}
-
-@media (max-width: 600px) {
-    .container {
-        width: 90vw;
-        max-width: none;
-        padding: 15px;
-        border-radius: 10px;
-    }
-    .header h1 {
-        font-size: 1.8rem;
-    }
-    .join-btn {
-        font-size: 0.9rem;
-        padding: 15px;
-    }
-    .countdown {
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-        /* Reduce gap */
-        flex-wrap: nowrap;
-        /* Prevent breaking into multiple lines */
-    }
-    .countdown-item {
-        min-width: 60px;
-        /* Reduce width to fit in one line */
-        padding: 8px;
-    }
-    .countdown-item span {
-        font-size: 1.5rem;
-        /* Reduce font size */
-    }
-    .countdown-item p {
-        font-size: 0.8rem;
-        /* Adjust label size */
-    }
-}
