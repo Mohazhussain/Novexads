@@ -37,10 +37,7 @@ src="https://www.facebook.com/tr?id=1638607427516100&ev=PageView&noscript=1"
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
 }
-@keyframes glow-blue {
-  0%,100% { box-shadow: 0 0 8px #00c6ff, 0 0 16px #0072ff; }
-  50% { box-shadow: 0 0 25px #00eaff, 0 0 45px #0066ff; }
-}
+
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
@@ -118,16 +115,7 @@ p{
   animation:glow-yellow 1.5s infinite alternate,gradientMove 2s linear infinite,pulse 2s ease-in-out infinite;
 }
 
-.setup-btn{
-  background:linear-gradient(90deg,#00c6ff,#0072ff);
-  color:#fff;
-  font-weight:bold;
-  font-size:0.85rem;
-  width:65%;
-  max-width:230px;
-  animation:glow-blue 2s infinite alternate;
-  opacity:0.9;
-}
+
 
 .timer-container{
   position:relative;
@@ -171,7 +159,7 @@ footer{
     <div class="timer-text" id="timerText">15</div>
   </div>
 
-  <button class="btn setup-btn" id="setupBtn">🎯 SETUP ADS GAMBLING</button>
+  
 
   <footer>© 2025 @MOHAZADSAGENCY ADS TG. All rights reserved.</footer>
 </div>
@@ -215,7 +203,7 @@ const r=30,circ=2*Math.PI*r;circle.style.strokeDasharray=circ;
 function setProgress(t){circle.style.strokeDashoffset=circ*(1-t/15);}
 let t=15;
 const tg='https://t.me/+d3YCgbHyKcowNmRl';
-const setup='https://t.me/mohazadsagency';
+
 const countdown=setInterval(()=>{
  t--;
  timerText.textContent=t;
@@ -231,9 +219,7 @@ document.getElementById('joinBtn').addEventListener('click',()=>{
  fbq('track','Lead');
  window.location.href=tg;
 });
-document.getElementById('setupBtn').addEventListener('click',()=>{
- window.location.href=setup;
-});
+
 </script>
 </body>
 </html>
